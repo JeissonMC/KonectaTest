@@ -18,8 +18,6 @@
                             <div class="col-sm-10">
                             <select name="idproducto" id="idproducto" class="form-control" required>
                                     <option value="" disabled>Seleccione una opcion</option>
-                                   
-
                                 </select>
                             </div>
                         </div>

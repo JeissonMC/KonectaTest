@@ -68,19 +68,22 @@ session_start();
                         </thead>
                         <tbody>
                             <?php
+                            
                                 include_once 'Conexion/connection.php';
-                                $sql = "SELECT * FROM venta";
+
+                                $sql = "SELECT  productos.nombre AS nombre, venta.cantidad_venta, venta.fecha_creacion
+                                 FROm productos
+                                INNER JOIN venta ON productos.id_producto = venta.idproducto;";
 
                                 //use for MySQLi-OOP
                                 $query = $conn->query($sql);
                                 while ($row = $query->fetch_assoc()) {
                                             echo
                                                 "<tr>
-                                            <td>" . $row['idproducto'] . "</td>
-                                            <td>" . $row['cantidad_venta'] . "</td>
-                                            <td>" . $row['fecha_creacion'] . "</td>
-                                            
-                                        </tr>";
+                                                    <td>" . $row['nombre'] . "</td>
+                                                    <td>" . $row['cantidad_venta'] . "</td>
+                                                    <td>" . $row['fecha_creacion'] . "</td>
+                                                </tr>";
                                 }
                             ?>
                         </tbody>
@@ -102,6 +105,7 @@ session_start();
 <script src="datatable/buttons/vfs_fonts.js"></script>
 <script src="datatable/buttons/buttons.html5.min.js"></script>
 <script src="js/consultarProducto.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
 
 <script>
