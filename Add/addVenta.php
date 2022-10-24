@@ -18,7 +18,7 @@ if (isset($_POST['add'])) {
 
     if ($stock == 0) {
 
-        $_SESSION['message'] = 'Se elimino el registro con exito';
+        $_SESSION['message'] = 'No producto tiene 0 stock';
         $_SESSION['message_type'] = 'danger';
     }else {
 
